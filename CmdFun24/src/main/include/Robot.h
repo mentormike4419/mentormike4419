@@ -11,6 +11,8 @@
 
 #include "RobotContainer.h"
 
+#include <frc/DigitalInput.h>
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -29,6 +31,10 @@ class Robot : public frc::TimedRobot {
   // Have it empty by default so that if testing teleop it
   // doesn't have undefined behavior and potentially crash.
   std::optional<frc2::CommandPtr> m_autonomousCommand;
+  
+  //PhotoElecSensor
+   frc::DigitalInput ballSensor{0};
+
 
   RobotContainer m_container;
 };

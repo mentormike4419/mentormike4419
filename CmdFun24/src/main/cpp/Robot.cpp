@@ -18,6 +18,8 @@ void Robot::RobotInit() {}
  */
 void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();
+  // ballSensor.Get();
+  frc::SmartDashboard::PutBoolean("ballSensor", ballSensor.Get());
 }
 
 /**

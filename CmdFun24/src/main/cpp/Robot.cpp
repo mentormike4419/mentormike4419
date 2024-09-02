@@ -19,8 +19,9 @@ void Robot::RobotInit() {}
  */
 void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();
-  // ballSensor.Get();
-  frc::SmartDashboard::PutBoolean("ballSensor", ballSensor.Get());
+  bool ballSensor {!(ballSensorInverted.Get())};
+  frc::SmartDashboard::PutBoolean(" BallSensor Detect", ballSensor);
+
 }
 
 /**

@@ -33,7 +33,7 @@ class Robot : public frc::TimedRobot {
   std::optional<frc2::CommandPtr> m_autonomousCommand;
   
   //PhotoElecSensor
-   frc::DigitalInput ballSensor{0};
+   frc::DigitalInput ballSensorInverted{0};
 
 
   RobotContainer m_container;

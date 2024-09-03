@@ -2,12 +2,17 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+#include <iostream>
 #include "Robot.h"
 
 #include <frc2/command/CommandScheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-void Robot::RobotInit() {}
+void Robot::RobotInit() {
+  m_led.SetLength(kLength);
+  m_led.SetData(m_ledBuffer);
+  m_led.Start();
+}
 
 /**
  * This function is called every 20 ms, no matter the mode. Use
@@ -19,7 +24,15 @@ void Robot::RobotInit() {}
  */
 void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();
+  
   bool ballSensor {!(ballSensorInverted.Get())};
+  if (ballSensor==true)
+  {
+    m_ledBuffer[0].SetHSV(255,0,255);
+    m_led.SetData(m_ledBuffer);
+  }
+  
+
   frc::SmartDashboard::PutBoolean(" BallSensor Detect", ballSensor);
 
 }

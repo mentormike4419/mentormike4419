@@ -13,6 +13,11 @@
 
 #include <frc/DigitalInput.h>
 
+#include <frc/AddressableLED.h>
+#include <array>
+#include <math.h>
+
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -35,6 +40,26 @@ class Robot : public frc::TimedRobot {
   //PhotoElecSensor
    frc::DigitalInput ballSensorInverted{0};
 
+
+  // LED
+  // assign length of LEDs
+  static constexpr int kLength = 5;
+  //PWM port 0
+  frc::AddressableLED m_led{0};
+  //set m_ledBuffer to these things
+  std::array<frc::AddressableLED::LEDData, kLength> m_ledBuffer; //reuse the buffer
+
+
+  // Our LED strip has density of 120 LED per meter
+  // units::meter_t kLedSpacing{1 / 120.0};
+
+  // Create LED pattern raibow
+  // all hues at max saturation and half brightness
+  // frc::LEDPattern m_rainbow = frc::LEDPattern::Rainbow(255,128);
+
+
+  // Create new pattern that scrolls rainbow
+  // frc::LEDPattern m_scrollingRainbow = mrainbow.ScrollAtAbsoluteSpeed(1_mps, kLedSpacing);
 
   RobotContainer m_container;
 };

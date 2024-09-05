@@ -12,6 +12,8 @@ void Robot::RobotInit() {
   m_led.SetLength(kLength);
   m_led.SetData(m_ledBuffer);
   m_led.Start();
+  
+  
 }
 
 /**
@@ -26,12 +28,26 @@ void Robot::RobotPeriodic() {
   frc2::CommandScheduler::GetInstance().Run();
   
   bool ballSensor {!(ballSensorInverted.Get())};
-  if (ballSensor==true)
-  {
-    m_ledBuffer[0].SetHSV(255,0,255);
-    m_led.SetData(m_ledBuffer);
-  }
-  
+  if (ballSensor == true)
+    {
+      std::cout << "true";
+    // frc::SmartDashboard::PutBoolean("LED ON", ballSensor);
+    m_ledBuffer[2].SetHSV(0,255,255);
+    m_ledBuffer[4].SetHSV(30,255,255);
+    m_ledBuffer[6].SetHSV(60,255,255);
+    m_ledBuffer[8].SetHSV(80,255,255);
+    m_ledBuffer[10].SetHSV(90,255,255);
+    m_ledBuffer[12].SetHSV(110,255,255);
+    m_ledBuffer[14].SetHSV(130,255,255);
+    m_ledBuffer[16].SetHSV(150,255,255);
+    m_ledBuffer[18].SetHSV(180,255,255);
+    m_led.SetData(m_ledBuffer);   
+    }
+  else
+    {
+      m_ledBuffer[10].SetHSV(0,0,0);
+      m_led.SetData(m_ledBuffer);
+    }
 
   frc::SmartDashboard::PutBoolean(" BallSensor Detect", ballSensor);
 

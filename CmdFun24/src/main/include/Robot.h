@@ -43,9 +43,9 @@ class Robot : public frc::TimedRobot {
 
   // LED
   // assign length of LEDs
-  static constexpr int kLength = 5;
-  //PWM port 0
-  frc::AddressableLED m_led{0};
+  static constexpr int kLength = 20;
+  //PWM port 9
+  frc::AddressableLED m_led{9};
   //set m_ledBuffer to these things
   std::array<frc::AddressableLED::LEDData, kLength> m_ledBuffer; //reuse the buffer
 

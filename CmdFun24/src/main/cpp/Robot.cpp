@@ -32,6 +32,9 @@ void Robot::RobotPeriodic() {
     {
       std::cout << "true";
     // frc::SmartDashboard::PutBoolean("LED ON", ballSensor);
+    // COLOR HSV values
+    // SetHSV (color 0-180, saturation/ 0-255, brightness 0-255)
+    /*
     m_ledBuffer[2].SetHSV(120,255,255); // red
     m_ledBuffer[4].SetHSV(125,255,255); // yellow
     m_ledBuffer[6].SetHSV(130,255,255); // green
@@ -43,15 +46,40 @@ void Robot::RobotPeriodic() {
     m_ledBuffer[16].SetHSV(160,255,255); //magenta
     m_ledBuffer[17].SetHSV(165,255,255); //magenta
     m_ledBuffer[18].SetHSV(170,255,255); // red
+    m_ledBuffer[19].SetHSV(180,255,255); // red 
+    */
+
+
+    /*
+    m_ledBuffer[2].SetHSV(120,255,255); //
+    m_ledBuffer[4].SetHSV(125,255,255); //
+    m_ledBuffer[6].SetHSV(130,255,255); // 
+    m_ledBuffer[8].SetHSV(135,255,255); // team purple
+    m_ledBuffer[10].SetHSV(140,255,255); //
+    m_ledBuffer[12].SetHSV(145,255,255); //
+    m_ledBuffer[14].SetHSV(150,255,255); //
+    m_ledBuffer[15].SetHSV(155,255,255); //
+    m_ledBuffer[16].SetHSV(160,255,255); //
+    m_ledBuffer[17].SetHSV(165,255,255); // 
+    m_ledBuffer[18].SetHSV(170,255,255); // team magenta
     m_ledBuffer[19].SetHSV(180,255,255); // red
-    m_led.SetData(m_ledBuffer);   
+    */
+
+
+    for (int i = 0; i < kLength; i++) {
+      m_ledBuffer[i].SetHSV(145, 255, 255);
+      }
     }
   else
     {
-      m_ledBuffer[10].SetHSV(0,0,0);
+      for (int i = 0; i < kLength; i++) {
+      m_ledBuffer[i].SetHSV(170, 255, 10);
+    }
+
       m_led.SetData(m_ledBuffer);
     }
 
+  m_led.SetData(m_ledBuffer);
   frc::SmartDashboard::PutBoolean(" BallSensor Detect", ballSensor);
 
 }

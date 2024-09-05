@@ -32,15 +32,18 @@ void Robot::RobotPeriodic() {
     {
       std::cout << "true";
     // frc::SmartDashboard::PutBoolean("LED ON", ballSensor);
-    m_ledBuffer[2].SetHSV(0,255,255);
-    m_ledBuffer[4].SetHSV(30,255,255);
-    m_ledBuffer[6].SetHSV(60,255,255);
-    m_ledBuffer[8].SetHSV(80,255,255);
-    m_ledBuffer[10].SetHSV(90,255,255);
-    m_ledBuffer[12].SetHSV(110,255,255);
-    m_ledBuffer[14].SetHSV(130,255,255);
-    m_ledBuffer[16].SetHSV(150,255,255);
-    m_ledBuffer[18].SetHSV(180,255,255);
+    m_ledBuffer[2].SetHSV(120,255,255); // red
+    m_ledBuffer[4].SetHSV(125,255,255); // yellow
+    m_ledBuffer[6].SetHSV(130,255,255); // green
+    m_ledBuffer[8].SetHSV(135,255,255); // light blue
+    m_ledBuffer[10].SetHSV(140,255,255); //med blue
+    m_ledBuffer[12].SetHSV(145,255,255); // royal blue
+    m_ledBuffer[14].SetHSV(150,255,255); //purple
+    m_ledBuffer[15].SetHSV(155,255,255); // Team Purple
+    m_ledBuffer[16].SetHSV(160,255,255); //magenta
+    m_ledBuffer[17].SetHSV(165,255,255); //magenta
+    m_ledBuffer[18].SetHSV(170,255,255); // red
+    m_ledBuffer[19].SetHSV(180,255,255); // red
     m_led.SetData(m_ledBuffer);   
     }
   else
